@@ -1,15 +1,19 @@
-class Itermocil < Formula
-  # desc "iTermocil allows you setup pre-configured layouts of panes in iTerm2."
-  homepage "https://github.com/TomAnthony/itermocil"
-  url "https://github.com/TomAnthony/itermocil/archive/0.2.1.tar.gz"
-  sha256 "7ccd3f5e9f9a9654a71c55618fc4a77e04c0856a78d65f7741f5703ccaf832ef"
+# Documentation: http://docs.brew.sh/Formula-Cookbook.html
+#                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
+# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
+class Itermocil < Formula
+  desc "Create pre-defined window/pane layouts and run commands in iTerm - alternative profile support implementation"
+  homepage "https://github.com/gmhawash/itermocil"
+  url "https://github.com/gmhawash/itermocil/archive/0.2.1.zip"
+  sha256 "b6c1bcbc86c3aad34238e3676e642737cd3476ef03b22eee4b30c0bba35ae4ca"
+
+  # depends_on "cmake" => :build
   resource "PyYAML" do
     url "https://pypi.python.org/packages/source/P/PyYAML/PyYAML-3.11.tar.gz"
     sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
   end
-
-  def install
+  
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     %w[PyYAML].each do |r|
